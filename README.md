@@ -1,6 +1,4 @@
-# mini-app
-
-**pure-javascript-tracker**
+# mini-app pure-javascript-tracker
 
 ### UI Example:
 
