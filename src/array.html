@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Javascript Tracker</title>
+  <!-- Font Awesome Icon -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div id="products_container">
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Script -->
+  <script type="text/javascript">
+    /*
+    const users = [
+      { id: 1, firstName: 'tony', lastname: 'nguyen' },
+      { id: 2, fistname: 'anna', lastName: 'us' },
+      { id: 3, firstName: 'man', lastName: 'can' }
+    ]
+
+    let output = {}
+    users.forEach(function (user) {
+      output = {
+        ...output,
+        [user.id]: `${user.firstName} ${user.lastName}`
+      }
+    })
+    console.log("forEach: ", output)
+*/
+
+    const productContainer = document.getElementById('products_container');
+    const products = [
+      {
+        id: Math.floor(Math.random() * 100),
+        name: 'laptop',
+        description: 'make by apple'
+      },
+      {
+        id: Math.floor(Math.random() * 100),
+        name: 'iphone15',
+        description: 'iphone15 by apple'
+      }
+    ]
+
+    products.forEach(product => {
+      const card = document.createElement('div');
+      card.setAttribute('class', 'max-w-s rounded overflow-hidden shadow-lg');
+
+      const cardContent = document.createElement('div');
+      card.setAttribute('class', 'px-6 py-4');
+
+      const cardTitle = document.createElement('div');
+      card.setAttribute('class', 'font-bold text-xl mb-2');
+      cardTitle.innerHTML = product.name;
+
+      const cardDescription = document.createElement('p');
+      card.setAttribute('class', 'text-gray-700 text-base');
+      cardDescription.innerHTML = product.description;
+
+      cardContent.appendChild(cardTitle);
+      cardContent.appendChild(cardDescription);
+      card.appendChild(cardContent);
+      productContainer.appendChild(card);
+    })
+
+  </script>
+</body>
+
+</html>

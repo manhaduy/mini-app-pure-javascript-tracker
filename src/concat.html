@@ -1,0 +1,138 @@
+<!--
+Declare two variables: admin and name.
+Assign the value "John" to name.
+Copy the value from name to admin.
+Show the value of admin using alert (must output “John”).
+-->
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Variablesr</title>
+  
+</head>
+<body>
+  <h1>
+    Variables Test
+  </h1>
+
+
+  <script type="text/javascript">
+    // bai  tap concat
+
+    /*
+      Output = [ "Bible", "Harry Potter", "War and peace", "Romeo and Juliet", "The Lord of the Rings", "The Shining" ]
+    */
+ 
+    const friends = [
+        {
+          name: 'Anna',
+          books: ['Bible', 'Harry Potter'],
+          age: 21,
+        },
+        {
+          name: 'Bob',
+          books: ['War and peace', 'Romeo and Juliet'],
+          age: 26,
+        },
+        {
+          name: 'Alice',
+          books: ['The Lord of the Rings', 'The Shining'],
+          age: 18,
+        },
+      ];
+
+      const bookReduce = friends.reduce((acc,curr) => {
+        const books = curr.books;
+        return acc.concat(books);      
+      }, [])
+      console.log('bookReduce: ',bookReduce)
+
+
+            // baitap 2
+       // count values in objects
+       
+          /*
+        output
+        {
+          'Truong': 3,
+          'Tony': 1,
+          'Hau': 2
+        }
+      */
+      const identifies = ['Truong', 'Tony', 'Hau', 'Truong', 'Truong', 'Hau'];
+
+      const reduceIdentifies = identifies.reduce((acc,curr) => {
+        if(!acc[curr]){
+          acc[curr] = 1
+        }else{
+          acc[curr] = acc[curr] + 1
+        }
+        return acc     
+      }, [])
+      console.log('reduceIdentifies: ', reduceIdentifies); 
+      
+
+      // bai tap 3:
+      // group object by a property
+              /*
+        output group by age
+        {
+          20: [
+            { name: 'Truong', age: 20 },
+            { name: 'Hau', age: 20 },
+          ],
+          32: [
+            { name: 'Tony', age: 32 },
+          ],
+          21: [
+            { name: 'Duy', age: 21 }
+          ]
+        }
+      */
+      const peoples = [
+        { 
+          name: 'Truong', 
+          age: 20 
+        },
+        { 
+          name: 'Hau', 
+          age: 20 
+        },
+        { 
+          name: 'Tony', 
+          age: 32 
+        },
+        { 
+          name: 'Duy', 
+          age: 21 
+        },
+        { 
+          name: 'Duy', 
+          age: 20 
+        },
+      ];
+    
+      const reduceAge = peoples.reduce((acc,curr) => {
+        const key = curr.age;
+        // Loop 0: 
+        //  If (there is no acc with key = 20)  
+        //      acc[20] = []
+        //esle acc[20].push { name: 'Truong', age: 20 },   (acc[20] = 20)
+        // return 20: [
+   //         { name: 'Truong', age: 20 },
+    //      ],
+        if (!acc[key]){
+          acc[key] = [];
+        }else{
+          acc[key].push(curr)
+        }
+          return acc;
+
+      }, {})
+
+      console.log('reduceAge: ', reduceAge); 
+      
+  </script>
+</body>
+</html>
